@@ -1,0 +1,119 @@
+<html>
+<h2>
+  Select the required fields:
+</h2>
+<form #userForm="ngForm" (ngSubmit)="onSave(userForm.value)">
+  <label> Select Sprint No</label>
+  <div class=" form-group">
+    <select class="form-control" [(ngModel)]="model.sprintNo" name="sprintNo">
+      <option *ngFor='let sprint of sprintNo' [value]="sprint.sprintNo">{{sprint.sprintNo}}</option>
+    </select>
+    <!-- <div [hidden]="sprintNo.valid || sprintNo.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div> -->
+  </div>
+  <label> Select Team</label>
+  <div class=" form-group">
+    <select class="form-control" [(ngModel)]="model.teamName" name="teamName">
+      <option *ngFor="let teamName of teamNames" [value]="teamName.name">
+        <br>{{teamName.name}}</option>
+    </select>
+  </div>
+  <div>
+    <label> Select TeamMember</label>
+    <select class="form-control" [(ngModel)]="model.memberName" name="memberName">
+      <!-- <ng-container *ngIf="model.teamName==='Pheonix'">
+        <option *ngFor="let bigwebName of bigwebNames" [value]="bigwebName.name">
+          {{ bigwebName.name}}
+        </option>
+      </ng-container>
+      <ng-container *ngIf="model.teamName==='Dynamos'">
+        <option *ngFor="let mobwebName of mobwebNames">
+          {{ mobwebName.name}}
+        </option>
+      </ng-container> -->
+      <ng-container *ngIf="model.teamName==='Fnatic'">
+        <option *ngFor="let fnaticName of fnaticNames">
+          {{ fnaticName.name}}
+        </option>
+      </ng-container>
+      <ng-container *ngIf="model.teamName==='Topaz'">
+        <option *ngFor="let topazName of topazNames">
+          {{ topazName.name}}
+        </option>
+      </ng-container>
+      <ng-container *ngIf="model.teamName==='Blue Topaz'">
+        <option *ngFor="let blueTopazName of blueTopazNames">
+          {{ blueTopazName.name}}
+        </option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="comment">
+      <strong>Comment:</strong>
+    </label>
+    <textarea class="form-control" placeholder="Write something..." rows="5" id="comment" [(ngModel)]="model.comment" name="comment" required #comment="ngModel"></textarea>
+   
+   
+    <div *ngIf="comment.invalid" class="alert alert-danger">
+      Comment required..
+    </div>
+
+
+  </div>
+  <input type="submit" value="{{valbutton}}" />
+  <!-- <button type="submit"  value="{{valbutton}}">Vote</button> -->
+</form>
+<!-- <div [hidden]="!submitted">
+  <h2>You are going to submit the following:</h2>
+  <div class="row">
+    <div class="col-xs-6">sprintNo</div>
+    <div class="col-xs-0  pull-left">{{ model.sprintNo }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">teamName</div>
+    <div class="col-xs-0 pull-left">{{ model.teamName }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">memberName</div>
+    <div class="col-xs-0 pull-left">{{ model.memberName }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">comment</div>
+    <div class="col-xs-0 pull-left">{{ model.comment }}</div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)='onbuttonclick()'>Submit</button>
+</div> -->
+
+
+<p>Voting Result</p>
+
+<table border='1'>  
+  
+  <tr>
+  
+    <td><strong>Id</strong></td>
+    <td><strong>Sprint No</strong></td>
+    <td><strong>Team Name</strong></td>
+    <td><strong>Member Name</strong></td>  
+    <td><strong>Comment</strong></td> 
+    <!-- <td>Edit</td>    -->
+    <td><strong>Delete</strong></td>
+   </tr>  
+  <tr *ngFor="let kk of Repdata;let ind = index">  
+       
+    <td>{{ind + 1}}</td>
+    <td>{{kk.sprintNo}}</td>
+    <td>{{kk.teamName}}</td>
+    <td>{{kk.memberName}}</td>  
+    <td>{{kk.comment}}</td>
+    <!-- <td><a (click)="edit(kk)" style="color:blueviolet">Edit</a></td>    -->
+    <td><a (click)="delete(kk._id)" style="color: red">Delete</a>  </td>  
+  </tr>  
+</table>
+
+
+</html>
