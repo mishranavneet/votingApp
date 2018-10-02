@@ -12,17 +12,19 @@ import { MemberListService } from './member/member-list.service';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ReportComponent } from './report/report.component';
   
 @NgModule({  
   declarations: [  
     AppComponent,
-    MemberListComponent  
+    MemberListComponent,
+    ReportComponent
   ],  
   imports: [  
     BrowserModule,HttpModule,FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      // {path:'Report' , component:ReportComponent}, 
+      {path:'Report' , component:ReportComponent}, 
       {path:'Voting' , component:MemberListComponent}
       // {path: 'sprint-dashboard' , component:MemberListComponent}
       

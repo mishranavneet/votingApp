@@ -21,9 +21,8 @@ export class CommonService {
                   
   }
   
-  // GetMember(){       
-  //   return this.http.get('http://localhost:8080/api/getUser/').pipe(map((response: Response) => response.json()))
-            
-  // }
+  GetData(){       
+    return this.http.get('http://localhost:8080/api/getData/').pipe(map((response: Response) => response.json()))    
+  }
   
 } 

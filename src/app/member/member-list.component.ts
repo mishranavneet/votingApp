@@ -64,7 +64,7 @@ export class MemberListComponent {
     
 
     ngOnInit() {
-        this.newService.GetUser().subscribe(data =>  this.Repdata = data)
+        this.newService.GetData().subscribe(data =>  this.Repdata = data)
 
     }
 
@@ -79,19 +79,23 @@ export class MemberListComponent {
            
     }
 
-    edit = function(kk) {  
-        this.id = kk._id;
-        this.sprintNo= kk.sprintNo;  
-        this.teamName= kk.teamName;
-        this.memberName= kk.memberName;  
-        this.comment= kk.comment;  
-        this.valbutton ="Update";  
-    }
+    // Editing entry--> Disabled for now
+
+    // edit = function(kk) {  
+    //     this.id = kk._id;
+    //     this.sprintNo= kk.sprintNo;  
+    //     this.teamName= kk.teamName;
+    //     this.memberName= kk.memberName;  
+    //     this.comment= kk.comment;  
+    //     this.valbutton ="Update";  
+    // }
     
-    delete = function(id) {  
-        this.newService.deleteUser(id)  
-        .subscribe(data =>   { alert(data.data) ; this.ngOnInit();}, error => this.errorMessage = error )   
-        }
+
+    // Delete entry from database(on report)
+    // delete = function(id) {  
+    //     this.newService.deleteUser(id)  
+    //     .subscribe(data =>   { alert(data.data) ; this.ngOnInit();}, error => this.errorMessage = error )   
+    //     }
 
     model = new member;
 

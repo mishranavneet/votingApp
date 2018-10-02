@@ -14,12 +14,21 @@
         </div> -->
   </div>
   <label> Select Team</label>
-  <div class=" form-group">
+  <!-- <div class=" form-group">
     <select class="form-control" [(ngModel)]="model.teamName" name="teamName">
       <option *ngFor="let teamName of teamNames" [value]="teamName.name">
         <br>{{teamName.name}}</option>
     </select>
+  </div> -->
+
+  <div class="form-group">
+      <select class="form-control" [(ngModel)]="model.teamName" name="teamName">
+        <option *ngFor = "let kk of Repdata">
+          {{kk.name}}
+        </option>
+      </select>
   </div>
+
   <div>
     <label> Select TeamMember</label>
     <select class="form-control" [(ngModel)]="model.memberName" name="memberName">
@@ -33,9 +42,10 @@
           {{ mobwebName.name}}
         </option>
       </ng-container> -->
-      <ng-container *ngIf="model.teamName==='Fnatic'">
-        <option *ngFor="let fnaticName of fnaticNames">
-          {{ fnaticName.name}}
+      <ng-container *ngIf="model.teamName==='navneet'">
+        <!-- <option *ngFor="let fnaticName of fnaticNames"> -->
+          <option *ngFor = "let add of Repdata">
+          {{ add.address}}
         </option>
       </ng-container>
       <ng-container *ngIf="model.teamName==='Topaz'">
@@ -89,7 +99,7 @@
 </div> -->
 
 
-<p>Voting Result</p>
+<!-- <p>Voting Result</p>
 
 <table border='1'>  
   
@@ -100,7 +110,7 @@
     <td><strong>Team Name</strong></td>
     <td><strong>Member Name</strong></td>  
     <td><strong>Comment</strong></td> 
-    <!-- <td>Edit</td>    -->
+    <td>Edit</td>   
     <td><strong>Delete</strong></td>
    </tr>  
   <tr *ngFor="let kk of Repdata;let ind = index">  
@@ -110,10 +120,10 @@
     <td>{{kk.teamName}}</td>
     <td>{{kk.memberName}}</td>  
     <td>{{kk.comment}}</td>
-    <!-- <td><a (click)="edit(kk)" style="color:blueviolet">Edit</a></td>    -->
+    <td><a (click)="edit(kk)" style="color:blueviolet">Edit</a></td>   
     <td><a (click)="delete(kk._id)" style="color: red">Delete</a>  </td>  
   </tr>  
-</table>
+</table> -->
 
 
 </html>

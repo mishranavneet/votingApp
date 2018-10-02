@@ -1,0 +1,25 @@
+<p>Voting Result</p>
+
+<table border='1'>  
+  
+  <tr>
+  
+    <td><strong>Id</strong></td>
+    <td><strong>Sprint No</strong></td>
+    <td><strong>Team Name</strong></td>
+    <td><strong>Member Name</strong></td>  
+    <td><strong>Comment</strong></td> 
+    <!-- <td>Edit</td>    -->
+    <td><strong>Delete</strong></td>
+   </tr>  
+  <tr *ngFor="let kk of Repdata;let ind = index">  
+       
+    <td>{{ind + 1}}</td>
+    <td>{{kk.sprintNo}}</td>
+    <td>{{kk.teamName}}</td>
+    <td>{{kk.memberName}}</td>  
+    <td>{{kk.comment}}</td>
+    <!-- <td><a (click)="edit(kk)" style="color:blueviolet">Edit</a></td>    -->
+    <td><a (click)="delete(kk._id)" style="color: red">Delete</a>  </td>  
+  </tr>  
+</table>

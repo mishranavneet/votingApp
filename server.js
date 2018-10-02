@@ -42,7 +42,33 @@ var UsersSchema = new Schema({
 ////////////////
 
   
-var model = mongo.model('model', UsersSchema);  
+var model = mongo.model('model', UsersSchema);
+
+// Getting data from mongodb
+
+var GetUsersSchema = new Schema ({
+    name: { type: String },
+    address: { type: String},
+    comment: { type: String},
+ }, { versionKey: false});
+
+
+var getUser = mongo.model('user', GetUsersSchema)
+
+
+app.get("/api/getData",function(req,res){  
+    getUser.find({},function(err,data){  
+              if(err){  
+                  res.send(err);  
+              }  
+              else{                
+                  res.send(data);  
+                  }  
+          });  
+  })
+
+  //////////////////
+
   
 app.post("/api/SaveUser",function(req,res){   
  var mod = new model(req.body);  
